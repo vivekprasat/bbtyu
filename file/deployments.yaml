@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: streamlit-app
+  name: nginx-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: streamlit-app
+      app: nginx-app
   template:
     metadata:
       labels:
-        app: streamlit-app
+        app: nginx-app
     spec:
       containers:
-      - name: streamlit-app
-        image: aminehy/docker-streamlit-app # Replace with your image
+      - name: nginx
+        image: nginx:1.25
         ports:
-        - containerPort: 8090
+        - containerPort: 80
