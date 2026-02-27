@@ -1,0 +1,140 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2026-02-25T15:11:06Z"
+  generation: 89
+  name: testingapp
+  namespace: default
+  resourceVersion: "27340"
+  uid: 6ebf540d-154b-4187-b61d-274fed280e12
+spec:
+  destination:
+    namespace: dev
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: file
+    repoURL: https://github.com/vivekprasat/bbtyu.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      enabled: true
+status:
+  controllerNamespace: default
+  health:
+    lastTransitionTime: "2026-02-25T15:19:42Z"
+    status: Healthy
+  history:
+  - deployStartedAt: "2026-02-25T15:17:42Z"
+    deployedAt: "2026-02-25T15:17:42Z"
+    id: 0
+    initiatedBy:
+      username: admin
+    revision: 5d89ef7b04ab367e008ea66ae21015ae1826bdde
+    source:
+      path: file
+      repoURL: https://github.com/vivekprasat/bbtyu.git
+      targetRevision: main
+  - deployStartedAt: "2026-02-25T15:19:37Z"
+    deployedAt: "2026-02-25T15:19:38Z"
+    id: 1
+    initiatedBy:
+      username: admin
+    revision: 74419a7211093a4fd059da954f8bb234d8c95d91
+    source:
+      path: file
+      repoURL: https://github.com/vivekprasat/bbtyu.git
+      targetRevision: main
+  - deployStartedAt: "2026-02-25T15:19:38Z"
+    deployedAt: "2026-02-25T15:19:38Z"
+    id: 2
+    initiatedBy:
+      automated: true
+    revision: 5d89ef7b04ab367e008ea66ae21015ae1826bdde
+    source:
+      path: file
+      repoURL: https://github.com/vivekprasat/bbtyu.git
+      targetRevision: main
+  - deployStartedAt: "2026-02-25T15:19:39Z"
+    deployedAt: "2026-02-25T15:19:39Z"
+    id: 3
+    initiatedBy:
+      automated: true
+    revision: 74419a7211093a4fd059da954f8bb234d8c95d91
+    source:
+      path: file
+      repoURL: https://github.com/vivekprasat/bbtyu.git
+      targetRevision: main
+  operationState:
+    finishedAt: "2026-02-25T15:19:39Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: 74419a7211093a4fd059da954f8bb234d8c95d91
+        source:
+          path: file
+          repoURL: https://github.com/vivekprasat/bbtyu.git
+          targetRevision: main
+    phase: Succeeded
+    startedAt: "2026-02-25T15:19:39Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/nginx-service unchanged
+        name: nginx-service
+        namespace: dev
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        images:
+        - nginx
+        kind: Deployment
+        message: deployment.apps/nginx-app configured
+        name: nginx-app
+        namespace: dev
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 74419a7211093a4fd059da954f8bb234d8c95d91
+      source:
+        path: file
+        repoURL: https://github.com/vivekprasat/bbtyu.git
+        targetRevision: main
+  reconciledAt: "2026-02-27T06:51:51Z"
+  resourceHealthSource: appTree
+  resources:
+  - kind: Service
+    name: nginx-service
+    namespace: dev
+    status: Synced
+    version: v1
+  - group: apps
+    kind: Deployment
+    name: nginx-app
+    namespace: dev
+    status: Synced
+    version: v1
+  sourceHydrator: {}
+  sourceType: Directory
+  summary:
+    images:
+    - nginx
+  sync:
+    comparedTo:
+      destination:
+        namespace: dev
+        server: https://kubernetes.default.svc
+      source:
+        path: file
+        repoURL: https://github.com/vivekprasat/bbtyu.git
+        targetRevision: main
+    revision: 74419a7211093a4fd059da954f8bb234d8c95d91
+    status: Synced
